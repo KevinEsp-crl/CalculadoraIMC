@@ -1,1 +1,1 @@
-Pruebas unitarias del calculo IMC 
+Registro de usuarios implementado 
