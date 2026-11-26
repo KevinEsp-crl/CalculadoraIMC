@@ -1,5 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
@@ -15,57 +17,75 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.antlr</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.asm</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.core</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>org.eclipse.persistence.oracle</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
-           <dependency>
-        <groupId>com.microsoft.sqlserver</groupId>
-        <artifactId>mssql-jdbc</artifactId>
-        <version>12.6.4.jre8</version>
-    </dependency>
 
-</dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.6.4.jre8</version>
+        </dependency>
+
+        <!-- JUnit 5 para pruebas unitarias -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -78,6 +98,7 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -86,6 +107,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -96,9 +118,11 @@
                         <goals>
                             <goal>copy</goal>
                         </goals>
+
                         <configuration>
                             <outputDirectory>${endorsed.dir}</outputDirectory>
                             <silent>true</silent>
+
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>javax</groupId>
@@ -107,17 +131,28 @@
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
+
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
+
     <repositories>
+
         <repository>
             <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <name>
+                A temporary repository created by NetBeans for libraries
+                and jars it could not identify. Please replace the
+                dependencies in this repository with correct ones and
+                delete this repository.
+            </name>
             <url>file:${project.basedir}/lib</url>
         </repository>
+
     </repositories>
+
 </project>
