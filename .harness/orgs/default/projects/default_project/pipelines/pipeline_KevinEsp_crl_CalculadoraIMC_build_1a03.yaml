@@ -1,0 +1,28 @@
+pipeline:
+  id: pipeline_KevinEsp_crl_CalculadoraIMC_build_1a03
+  name: pipeline_KevinEsp_crl_CalculadoraIMC_build_1a03
+  stages:
+    - name: Build
+      id: build
+      runtime: cloud
+      platform:
+        os: linux
+        arch: amd64
+      clone:
+        enabled: true
+      cache:
+        enabled: true
+      steps:
+        - name: Build with Maven
+          id: build_with_maven
+          run:
+            shell: bash
+            script: |-
+              sudo apt-get update -qq
+              sudo apt-get install -y -qq openjdk-17-jdk
+              export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+              export PATH="$JAVA_HOME/bin:$PATH"
+              java -version
+              mvn -B package
+  tags:
+    onboarding: "true"
